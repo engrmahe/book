@@ -1,0 +1,29 @@
+$('input[name=Total_Quantity]').change(function() {
+        calculateTotalAmount();
+    });
+
+    $('input[name=Rate]').change(function() {
+        calculateTotalAmount();
+    });
+
+    $('input[name=Door_Delivery]').change(function() {
+        calculateTotalAmount();
+    });
+
+       function calculateTotalAmount() {
+        var totalAmount = parseFloat($('input[name=netpay]').val());
+        totalAmount += parseFloat($('input[name=cgst]').val());
+        totalAmount += parseFloat($('input[name=sgst]').val());
+        totalAmount += parseFloat($('input[name=packing_charges]').val());
+        totalAmount += parseFloat($('input[name=pickup_charges]').val());
+        totalAmount -= parseFloat($('input[name=trans_expenses]').val());
+        totalAmount -= parseFloat($('input[name=discount]').val());
+        $('input[name=total_amount]').val(round(totalAmount, true));
+    }
+
+    function calculateItemValue() {
+        var qty = parseFloat($('input[id=Total_Quantity]').val());
+        var rate = parseFloat($('input[id=Rate]').val());
+        var value = qty * rate;
+        $('input[id=netpay]').val(round(value));
+    }

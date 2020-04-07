@@ -1,0 +1,47 @@
+<html>
+
+<body>
+    OK found,
+    in order to not show the final confirmation message (that stays stuck on top of every page until you do
+    logout&login),
+    edit vendor\crocodicstudio\crudbooster\src\controllers\CBController.php
+    in function
+    postActionSelected()
+
+    add an IF of this kind:
+
+    if ($button_name == 'sel_print') { //name of your bulk action button
+    $this->actionButtonSelected($id_selected, $button_name); //executes the bulk action but doesn't show any message
+    } else {
+    ...original code...
+
+</body>
+
+</html>
+
+$this->col[] = [
+"label" => "Status",
+"name" => "status",
+"type" => "radio",
+"width" => "60%",
+"callback_php" => '($row->status == 1? "ON" : "OFF")'
+];
+
+<script type="text/javascript">
+    var lang = 'en';
+    moment.locale(lang);
+    $(function () {
+        $('.input_datetime').daterangepicker({
+            singleDatePicker: true,
+            timePicker: true,
+            timePickerIncrement: 1,
+            timePicker24Hour: true,
+            autoApply: false,
+            showDropdowns: true,
+            locale: {
+                format: "YYYY-MM-DD HH:mm:ss",
+            },
+
+        });
+    });
+</script>
